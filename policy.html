@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ads.txt Guide | AdRyx.io</title>
+    <title>Privacy Policy | AdRyx.io</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
@@ -12,7 +12,8 @@
         body { font-family: 'Inter', sans-serif; }
         .page-bg { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); min-height: 100vh; }
         .dark-card-bg { background-color: #1e1e1e; border: 1px solid #333; }
-        .code-block { background-color: #0f172a; border-left: 4px solid #6366f1; padding: 16px; color: #e2e8f0; font-family: monospace; overflow-x: auto; }
+        .policy-h2 { color: #818cf8; font-weight: 700; margin-top: 32px; margin-bottom: 8px; font-size: 1.5rem; }
+        .policy-p { color: #e2e8f0; margin-bottom: 16px; }
     </style>
 </head>
 <body class="page-bg flex flex-col">
@@ -33,35 +34,49 @@
 
     <main class="flex-grow">
         <section class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-            <h1 class="text-5xl font-extrabold text-white text-center mb-6">Ads.txt Implementation Guide</h1>
-            <p class="text-xl text-blue-200 max-w-3xl mx-auto text-center mb-12">
-                Secure your ad inventory and maximize revenue by implementing the simple Ads.txt file on your root domain.
+            <h1 class="text-5xl font-extrabold text-white text-center mb-6">Privacy Policy</h1>
+            <p class="text-lg text-blue-200 text-center mb-12">
+                Last updated: November 19, 2025
             </p>
 
-            <div class="space-y-8 text-slate-300">
-                <h2 class="text-3xl font-bold text-white mb-4">What is Ads.txt?</h2>
+            <div class="text-slate-300">
                 <p>
-                    Ads.txt (Authorized Digital Sellers) is an IAB initiative designed to increase transparency in programmatic advertising. By listing authorized sellers, you prevent unauthorized parties from selling your inventory, which protects your brand and increases buyer confidence.
+                    This Privacy Policy describes AdRyx.io's policies and procedures on the collection, use, and disclosure of your information when you use the Service and tells you about your privacy rights.
                 </p>
 
-                <h2 class="text-3xl font-bold text-white mb-4">How to Implement AdRyx's Ads.txt Line</h2>
-                <ol class="list-decimal list-inside pl-4 space-y-4">
-                    <li>Create a plain text file named `ads.txt`.</li>
-                    <li>Copy and paste the authorized line(s) provided by AdRyx below into this file.</li>
-                    <li>Upload the `ads.txt` file to the **root directory** of your website (e.g., `https://yourdomain.com/ads.txt`).</li>
-                    <li>If you have existing lines from other partners, simply add our line to the end of the file.</li>
-                </ol>
+                <h2 class="policy-h2">1. Definitions</h2>
+                <p class="policy-p">
+                    For the purposes of this Policy, "Service" refers to the AdRyx.io website and the ad monetization platform.
+                </p>
 
-                <h2 class="text-3xl font-bold text-white mb-4">Your AdRyx Line:</h2>
-                <div class="code-block">
-                    adryx.io, [PUBLISHER_ID], DIRECT, [CERTIFICATION_AUTHORITY_ID]
-                </div>
-                <p class="text-sm text-yellow-400">
-                    <i class="fas fa-exclamation-triangle mr-2"></i> **Important:** Please replace `[PUBLISHER_ID]` with the unique ID provided to you by your AdRyx Yield Manager after application approval.
+                <h2 class="policy-h2">2. Information We Collect</h2>
+                <p class="policy-p">
+                    We collect several types of information:
+                    <ul class="list-disc list-inside ml-4 space-y-2 text-slate-400">
+                        <li>**Personal Data:** Includes name, email address, phone number, and website URL provided through the sign-up form.</li>
+                        <li>**Usage Data:** Information collected automatically, such as IP address, browser type, and pages visited on our site.</li>
+                        <li>**Ad Data:** Non-personal data related to ad impressions, clicks, and revenue metrics.</li>
+                    </ul>
+                </p>
+
+                <h2 class="policy-h2">3. Use of Your Personal Data</h2>
+                <p class="policy-p">
+                    We may use Personal Data for the following purposes: to provide and maintain our Service, to manage your publisher application, to contact you regarding your account, and for business analytics.
                 </p>
                 
-                <p>
-                    If you require any assistance with implementation, please contact our dedicated support team via the Contact page.
+                <h2 class="policy-h2">4. Disclosure of Your Personal Data</h2>
+                <p class="policy-p">
+                    We may share your personal information with service providers to monitor and analyze the use of our Service, or with business partners to offer you relevant products or services. We will never sell your contact information to third parties.
+                </p>
+                
+                <h2 class="policy-h2">5. Your Privacy Rights</h2>
+                <p class="policy-p">
+                    Depending on your location, you have certain rights regarding your personal data, including the right to access, correct, or delete the data we hold about you.
+                </p>
+                
+                <h2 class="policy-h2">Contact Us</h2>
+                <p class="policy-p">
+                    If you have any questions about this Privacy Policy, you can contact us: <a href="mailto:info@adryx.io" class="text-indigo-400 hover:underline">info@adryx.io</a>
                 </p>
             </div>
         </section>
