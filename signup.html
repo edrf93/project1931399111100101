@@ -86,7 +86,7 @@
 
             <div class="dark-form-bg p-8 md:p-12 rounded-2xl shadow-2xl border border-slate-700 relative overflow-hidden">
                 
-                <div id="success-message" class="hidden absolute inset-0 dark-form-bg z-20 flex flex-col items-center justify-center text-center p-8">
+                <div id="success-message" class="hidden absolute inset-0 dark-form-bg z-20 flex flex-col items-center justify-center text-center p-8 transition-opacity duration-500">
                     <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/30">
                         <i class="fas fa-check text-4xl text-white"></i>
                     </div>
@@ -174,29 +174,68 @@
         const btnLoader = document.getElementById('btn-loader');
         const btnText = submitBtn.querySelector('span');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent actual page reload
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Sayfanın varsayılan yenilenmesini engeller
 
-            // 1. Button Loading State
+            // 1. Loading Durumuna Geçiş
             btnText.textContent = 'Sending...';
             btnLoader.classList.remove('hidden');
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            // 2. Gather Data (For Console Log - later this goes to backend)
+            // Form verilerini JSON objesine dönüştür
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            console.log("Form Data captured:", data);
+            const data = Object.fromEntries(formData.entries());
 
-            // 3. Simulate Server Delay (2 seconds)
-            setTimeout(() => {
-                // Success Animation
-                form.classList.add('opacity-0'); // Fade out form content visuals if needed, or just overlay
-                successMessage.classList.remove('hidden'); // Show success overlay
+            try {
+                // Vercel Serverless Fonksiyonuna POST isteği gönderir
+                const response = await fetch('/api/submit-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                // Yanıtı JSON olarak al
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    // BAŞARILI DURUM: Başarı mesajını göster
+                    form.classList.add('opacity-0');
+                    
+                    // Başarı mesajını görünür yap
+                    setTimeout(() => {
+                        form.style.display = 'none'; // Formu gizle
+                        successMessage.classList.remove('hidden');
+                    }, 300);
+
+                } else {
+                    // HATA DURUMU (API'den Hata Geldi)
+                    let errorMessage = result.message || 'Bilinmeyen bir sunucu hatası oluştu.';
+                    
+                    // Butonu eski haline getir
+                    btnText.textContent = 'Submit';
+                    btnLoader.classList.add('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    
+                    // Hata mesajını göster
+                    alert(`Başvuru Gönderilemedi: ${errorMessage}. Lütfen Vercel loglarını kontrol edin.`);
+                    console.error("API Hata Mesajı:", errorMessage);
+                }
+
+            } catch (error) {
+                // Ağ bağlantısı veya fetch hatası
+                alert("Ağ hatası: Sunucuya ulaşılamadı. İnternet bağlantınızı veya Vercel'deki deploy durumunuzu kontrol edin.");
+                console.error("Fetch Hatası:", error);
                 
-                // Optional: Reset form
-                form.reset();
-            }, 1500);
+                // Butonu eski haline getir
+                btnText.textContent = 'Submit';
+                btnLoader.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }
         });
     </script>
 
