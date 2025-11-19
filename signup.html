@@ -14,6 +14,8 @@
         /* Custom Dark Theme Background */
         .dark-form-bg {
             background-color: #1e1e1e;
+            /* Ana form konteynerinin yüksekliğini dinamik tutar */
+            min-height: 400px; /* Görsel istikrar için minimum yükseklik */
         }
         
         /* Input Styling */
@@ -59,29 +61,17 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* GEÇİŞ CSS'İ */
-        .form-content-wrapper {
-            transition: opacity 0.5s ease-out, max-height 0.5s ease-out;
-            max-height: 2000px; /* Başlangıçta yeterince yüksek */
-            opacity: 1;
+        /* YENİ GEÇİŞ MANTIĞI: Mutlak Konumlandırma yerine Görünürlük */
+        .content-transition {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
 
-        .form-content-wrapper.fade-out {
+        .hidden-content {
             opacity: 0;
-            max-height: 0;
-            /* Yatay ve dikey boşlukları sıfırlayarak kutu küçülürken alan kaybını sağlar */
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-        }
-
-        #success-message {
-            opacity: 0; /* Başlangıçta görünmez */
-            transition: opacity 0.5s ease-in;
-        }
-        #success-message.visible {
-            opacity: 1; /* Görünür olduğunda */
+            transform: translateY(20px);
+            pointer-events: none; /* Tıklama olaylarını engeller */
+            height: 0;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -110,9 +100,9 @@
                 </p>
             </div>
 
-            <div class="dark-form-bg p-8 md:p-12 rounded-2xl shadow-2xl border border-slate-700 relative overflow-hidden">
+            <div id="form-container" class="dark-form-bg p-8 md:p-12 rounded-2xl shadow-2xl border border-slate-700 relative overflow-hidden">
                 
-                <div id="success-message" class="hidden absolute inset-0 dark-form-bg z-20 flex flex-col items-center justify-center text-center p-8 transition-opacity duration-500">
+                <div id="success-message" class="hidden content-transition flex flex-col items-center justify-center text-center p-8">
                     <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/30">
                         <i class="fas fa-check text-4xl text-white"></i>
                     </div>
@@ -125,68 +115,68 @@
                     </a>
                 </div>
 
-                <div id="form-wrapper" class="form-content-wrapper">
-                    <form id="monetization-form" class="space-y-8">
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            <div>
-                                <label for="first-name" class="custom-label">First name *</label>
-                                <input type="text" id="first-name" name="first-name" required class="custom-input">
-                            </div>
-                            <div>
-                                <label for="last-name" class="custom-label">Last name *</label>
-                                <input type="text" id="last-name" name="last-name" required class="custom-input">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            <div>
-                                <label for="phone" class="custom-label">Phone</label>
-                                <div class="relative">
-                                    <div class="absolute bottom-3 left-0 text-slate-400 flex items-center gap-1">
-                                        <i class="fas fa-globe"></i>
-                                        <i class="fas fa-chevron-down text-xs"></i>
-                                    </div>
-                                    <input type="tel" id="phone" name="phone" class="custom-input pl-12" placeholder="+1 (555) 000-0000">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="email" class="custom-label">Email *</label>
-                                <input type="email" id="email" name="email" required class="custom-input">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            <div>
-                                <label for="website" class="custom-label">Website *</label>
-                                <input type="url" id="website" name="website" placeholder="https://" required class="custom-input">
-                            </div>
-                            <div>
-                                <label for="pageviews" class="custom-label">Monthly Pageviews *</label>
-                                <select id="pageviews" name="pageviews" required class="custom-input bg-transparent">
-                                    <option value="" class="bg-slate-800 text-slate-400">Select Range</option>
-                                    <option value="<100k" class="bg-slate-800 text-white">Less than 100k</option>
-                                    <option value="100k-1M" class="bg-slate-800 text-white">100k - 1M</option>
-                                    <option value="1M-10M" class="bg-slate-800 text-white">1M - 10M</option>
-                                    <option value="10M+" class="bg-slate-800 text-white">10M+</option>
-                                </select>
-                            </div>
-                        </div>
-
+                <form id="monetization-form" class="space-y-8 content-transition">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div>
-                            <label for="message" class="custom-label">Message *</label>
-                            <textarea id="message" name="message" rows="2" required class="custom-input resize-none"></textarea>
+                            <label for="first-name" class="custom-label">First name *</label>
+                            <input type="text" id="first-name" name="first-name" required class="custom-input">
                         </div>
-
-                        <div class="pt-4">
-                            <button type="submit" id="submit-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-3">
-                                <span>Submit</span>
-                                <div id="btn-loader" class="loader hidden"></div>
-                            </button>
+                        <div>
+                            <label for="last-name" class="custom-label">Last name *</label>
+                            <input type="text" id="last-name" name="last-name" required class="custom-input">
                         </div>
+                    </div>
 
-                    </form>
-                </div> </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <label for="phone" class="custom-label">Phone</label>
+                            <div class="relative">
+                                <div class="absolute bottom-3 left-0 text-slate-400 flex items-center gap-1">
+                                    <i class="fas fa-globe"></i>
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </div>
+                                <input type="tel" id="phone" name="phone" class="custom-input pl-12" placeholder="+1 (555) 000-0000">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="custom-label">Email *</label>
+                            <input type="email" id="email" name="email" required class="custom-input">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <label for="website" class="custom-label">Website *</label>
+                            <input type="url" id="website" name="website" placeholder="https://" required class="custom-input">
+                        </div>
+                        <div>
+                            <label for="pageviews" class="custom-label">Monthly Pageviews *</label>
+                            <select id="pageviews" name="pageviews" required class="custom-input bg-transparent">
+                                <option value="" class="bg-slate-800 text-slate-400">Select Range</option>
+                                <option value="<100k" class="bg-slate-800 text-white">Less than 100k</option>
+                                <option value="100k-1M" class="bg-slate-800 text-white">100k - 1M</option>
+                                <option value="1M-10M" class="bg-slate-800 text-white">1M - 10M</option>
+                                <option value="10M+" class="bg-slate-800 text-white">10M+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="custom-label">Message *</label>
+                        <textarea id="message" name="message" rows="2" required class="custom-input resize-none"></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" id="submit-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-3">
+                            <span>Submit</span>
+                            <div id="btn-loader" class="loader hidden"></div>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
             
             <p class="text-center text-slate-500 text-sm">
                 By submitting this form, you agree to our Privacy Policy and Terms of Service.
@@ -196,12 +186,15 @@
 
     <script>
         const form = document.getElementById('monetization-form');
-        const formWrapper = document.getElementById('form-wrapper');
         const successMessage = document.getElementById('success-message');
         const submitBtn = document.getElementById('submit-btn');
         const btnLoader = document.getElementById('btn-loader');
         const btnText = submitBtn.querySelector('span');
         const formActionUrl = '/api/submit-form'; // Vercel API URL
+
+        // Başarı mesajını gizle (CSS'in gizlediği kısmı)
+        successMessage.style.opacity = 0;
+        successMessage.style.display = 'none';
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -228,22 +221,27 @@
                 const result = await response.json();
 
                 if (response.ok && result.success) {
-                    // BAŞARILI DURUM: Formu yumuşakça gizle ve başarı mesajını göster
+                    // BAŞARILI DURUM: Formu gizle ve başarı mesajını göster
 
-                    // Form içeriğini gizle (CSS geçişi başlar)
-                    formWrapper.classList.add('fade-out');
+                    // 1. Formu Yavaşça Gizle
+                    form.classList.add('hidden-content');
                     
-                    // Geçiş (0.5s) bittikten sonra başarı mesajını göster
+                    // 2. Geçiş süresi (0.5s) kadar bekleyip formu tamamen gizle
                     setTimeout(() => {
-                        // Formun kapladığı alanı kesin olarak sıfırla
-                        formWrapper.style.display = 'none';
+                        form.style.display = 'none'; // Alanı tamamen sıfırla
                         
-                        successMessage.classList.remove('hidden');
-                        successMessage.classList.add('visible'); // Yumuşak belirmesi için
+                        // 3. Başarı mesajını göster
+                        successMessage.style.display = 'flex'; // Alanı aç
+                        
+                        // 4. Biraz bekleyip opacity ile yavaşça görünür yap
+                        setTimeout(() => {
+                            successMessage.style.opacity = 1;
+                        }, 50); // Kısa bir gecikme ile akıcı görünürlük sağlar
+
                     }, 500); // CSS geçiş süresi kadar bekler
 
                 } else {
-                    // HATA DURUMU (API'den Hata Geldi)
+                    // HATA DURUMU
                     let errorMessage = result.message || 'Bilinmeyen bir sunucu hatası oluştu.';
                     
                     // Butonu eski haline getir
@@ -252,7 +250,6 @@
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
                     
-                    // Hata mesajını göster
                     alert(`Başvuru Gönderilemedi: ${errorMessage}. Lütfen Vercel loglarını kontrol edin.`);
                     console.error("API Hata Mesajı:", errorMessage);
                 }
