@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join mxads.io | Start Monetizing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+
+        /* Custom Dark Theme Background similar to the screenshot */
+        .dark-form-bg {
+            background-color: #1e1e1e; /* Koyu gri zemin */
+        }
+        
+        /* Input Styling: Underline only, transition effects */
+        .custom-input {
+            background-color: transparent;
+            border-bottom: 1px solid #555;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        
+        .custom-input:focus {
+            border-bottom: 2px solid #818cf8; /* Indigo focus color */
+        }
+
+        .custom-label {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        /* Background Pattern for the page */
+        .page-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        }
+        
+        /* Loader Animation */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #6366f1;
+            width: 24px;
+            height: 24px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="page-bg min-h-screen flex flex-col">
+
+    <nav class="w-full p-6 absolute top-0 left-0">
+        <div class="max-w-7xl mx-auto">
+            <a href="index.html" class="flex items-center gap-2 text-white hover:text-blue-300 transition w-fit">
+                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <span class="font-semibold tracking-tight">Back to mxads.io</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="flex-grow flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl w-full space-y-8">
+            
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                    Ready to Maximize Your Revenue?
+                </h2>
+                <p class="mt-2 text-blue-200 text-lg">
+                    Fill in the details below. Our team usually responds within 24 hours.
+                </p>
+            </div>
+
+            <div class="dark-form-bg p-8 md:p-12 rounded-2xl shadow-2xl border border-slate-700 relative overflow-hidden">
+                
+                <div id="success-message" class="hidden absolute inset-0 dark-form-bg z-20 flex flex-col items-center justify-center text-center p-8">
+                    <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/30">
+                        <i class="fas fa-check text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Application Received!</h3>
+                    <p class="text-slate-300 max-w-md">
+                        Thank you for choosing mxads.io. We have sent a confirmation to your email. A yield manager will contact you shortly.
+                    </p>
+                    <a href="index.html" class="mt-8 text-blue-400 hover:text-blue-300 font-medium">
+                        Return to Homepage
+                    </a>
+                </div>
+
+                <form id="monetization-form" class="space-y-8">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <label for="first-name" class="custom-label">First name *</label>
+                            <input type="text" id="first-name" name="first-name" required class="custom-input">
+                        </div>
+                        <div>
+                            <label for="last-name" class="custom-label">Last name *</label>
+                            <input type="text" id="last-name" name="last-name" required class="custom-input">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <label for="phone" class="custom-label">Phone</label>
+                            <div class="relative">
+                                <div class="absolute bottom-3 left-0 text-slate-400 flex items-center gap-1">
+                                    <i class="fas fa-globe"></i>
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </div>
+                                <input type="tel" id="phone" name="phone" class="custom-input pl-12" placeholder="+1 (555) 000-0000">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="custom-label">Email *</label>
+                            <input type="email" id="email" name="email" required class="custom-input">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <label for="website" class="custom-label">Website *</label>
+                            <input type="url" id="website" name="website" placeholder="https://" required class="custom-input">
+                        </div>
+                        <div>
+                            <label for="pageviews" class="custom-label">Monthly Pageviews *</label>
+                            <select id="pageviews" name="pageviews" required class="custom-input bg-transparent">
+                                <option value="" class="bg-slate-800 text-slate-400">Select Range</option>
+                                <option value="<100k" class="bg-slate-800 text-white">Less than 100k</option>
+                                <option value="100k-1M" class="bg-slate-800 text-white">100k - 1M</option>
+                                <option value="1M-10M" class="bg-slate-800 text-white">1M - 10M</option>
+                                <option value="10M+" class="bg-slate-800 text-white">10M+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="custom-label">Message *</label>
+                        <textarea id="message" name="message" rows="2" required class="custom-input resize-none"></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" id="submit-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-3">
+                            <span>Submit</span>
+                            <div id="btn-loader" class="loader hidden"></div>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+            
+            <p class="text-center text-slate-500 text-sm">
+                By submitting this form, you agree to our Privacy Policy and Terms of Service.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('monetization-form');
+        const successMessage = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnLoader = document.getElementById('btn-loader');
+        const btnText = submitBtn.querySelector('span');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual page reload
+
+            // 1. Button Loading State
+            btnText.textContent = 'Sending...';
+            btnLoader.classList.remove('hidden');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // 2. Gather Data (For Console Log - later this goes to backend)
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            console.log("Form Data captured:", data);
+
+            // 3. Simulate Server Delay (2 seconds)
+            setTimeout(() => {
+                // Success Animation
+                form.classList.add('opacity-0'); // Fade out form content visuals if needed, or just overlay
+                successMessage.classList.remove('hidden'); // Show success overlay
+                
+                // Optional: Reset form
+                form.reset();
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>

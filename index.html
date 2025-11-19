@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mxads.io | Premium Publisher Monetization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Custom Gradients */
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
+        }
+        .tech-bg {
+            background: #0b1120; /* Very dark blue/black */
+            background-image: radial-gradient(circle at 50% 50%, #1e293b 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Animations */
+        .stat-card { transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); }
+        
+        .tech-card { transition: all 0.3s ease; }
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.15), 0 8px 10px -6px rgba(59, 130, 246, 0.15);
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-9 h-9 bg-blue-700 rounded-lg flex items-center justify-center text-white font-bold shadow-blue-500/30 shadow-lg">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-slate-900 tracking-tight">mxads.io</span>
+                    </div>
+                    <div class="hidden md:ml-12 md:flex md:space-x-8">
+                        <a href="#why-us" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Why Us</a>
+                        <a href="#solutions" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Solutions</a>
+                        <a href="#technology" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Technology</a>
+                        <a href="#player" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Video Player</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-slate-600 hover:text-blue-700 font-medium text-sm hidden sm:block">Login</a>
+                    <a href="signup.html" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg shadow-blue-700/30 text-sm">
+                        Start Monetizing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-bg pt-36 pb-24 lg:pt-52 lg:pb-40 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-blue-900/50 border border-blue-700/50 mb-6 backdrop-blur-sm">
+                <span class="text-blue-200 text-xs font-bold tracking-wide uppercase">Trusted by 100+ Global Publishers and 10.000+ Websites</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
+                Premium Demand. Higher Revenue. <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400">Zero Hassle.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Join the network that generated <strong>$5M+</strong> for publishers last year.
+                We connect your inventory to 30+ premium demand partners via Prebid and OpenRTB.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#why-us" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-xl">
+                    See Our Numbers
+                </a>
+                <a href="#technology" class="border border-blue-400/30 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-800/50 transition backdrop-blur-sm">
+                    Explore Tech
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section id="why-us" class="relative -mt-20 z-20 px-4">
+        <div class="max-w-7xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 md:p-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div class="lg:col-span-1">
+                    <h2 class="text-blue-700 font-bold uppercase tracking-wide text-sm mb-2">Why Publishers Choose mxads.io</h2>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-4">12 Years of AdTech Excellence</h3>
+                    <p class="text-slate-600 mb-6">
+                        We don't just provide tags; we provide a legacy of revenue. With over a decade of experience, we connect you to the world's largest demand sources.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-700 font-medium">
+                            <i class="fas fa-globe-americas text-blue-600 mr-3"></i> Global Coverage
+                        </li>
+                        <li class="flex items-center text-slate-700 font-medium">
+                            <i class="fas fa-shield-alt text-blue-600 mr-3"></i> Brand Safety First
+                        </li>
+                        <li class="flex items-center text-slate-700 font-medium">
+                            <i class="fas fa-hand-holding-usd text-blue-600 mr-3"></i> Reliable, On-Time Payouts
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="bg-slate-50 p-6 rounded-xl text-center stat-card border border-slate-100">
+                            <div class="text-4xl font-extrabold text-blue-700 mb-1">$5M+</div>
+                            <div class="text-sm text-slate-500 font-medium">Paid to Publishers (Last Year)</div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl text-center stat-card border border-slate-100">
+                            <div class="text-4xl font-extrabold text-blue-700 mb-1">30+</div>
+                            <div class="text-sm text-slate-500 font-medium">Global Demand Partners</div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl text-center stat-card border border-slate-100">
+                            <div class="text-4xl font-extrabold text-blue-700 mb-1">100+</div>
+                            <div class="text-sm text-slate-500 font-medium">Major Publisher Groups</div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl text-center stat-card border border-slate-100">
+                            <div class="text-4xl font-extrabold text-blue-700 mb-1">10K+</div>
+                            <div class="text-sm text-slate-500 font-medium">Websites Monetized</div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl text-center stat-card border border-slate-100">
+                            <div class="text-4xl font-extrabold text-blue-700 mb-1">20K+</div>
+                            <div class="text-sm text-slate-500 font-medium">Apps Integrated</div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl text-center stat-card border border-slate-100">
+                            <div class="text-4xl font-extrabold text-blue-700 mb-1">12 Years</div>
+                            <div class="text-sm text-slate-500 font-medium">Market Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-blue-700 font-semibold tracking-wide uppercase text-sm">Our Solutions</h2>
+                <h3 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+                    360° Monetization Suite
+                </h3>
+                <p class="mt-4 max-w-2xl text-lg text-slate-500 mx-auto">
+                    From header bidding to direct deals, we cover every aspect of your ad inventory.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition flex gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Yield Optimization</h4>
+                        <p class="text-slate-600 leading-relaxed">
+                            Our AI-driven algorithm adjusts floor prices in real-time, ensuring you sell every impression at the highest possible price point without sacrificing fill rate.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition flex gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Header Bidding Management</h4>
+                        <p class="text-slate-600 leading-relaxed">
+                            Access our Prebid wrapper setup. We manage the complexity of client-side and server-side adapters, connecting you to 30+ global SSPs instantly.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition flex gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Ad Quality & Compliance</h4>
+                        <p class="text-slate-600 leading-relaxed">
+                            We protect your user experience. Our automated scanning tools block malicious ads, redirects, and heavy creatives before they load on your site.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition flex gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Dedicated Account Management</h4>
+                        <p class="text-slate-600 leading-relaxed">
+                            Real humans, not bots. Get a dedicated yield manager who analyzes your traffic daily and suggests optimizations to boost RPM.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="py-24 tech-bg text-white relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-overlay filter blur-3xl opacity-10"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600 rounded-full mix-blend-overlay filter blur-3xl opacity-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-blue-400 font-semibold tracking-wide uppercase text-sm">Powered by Innovation</h2>
+                <h3 class="mt-2 text-3xl md:text-5xl font-bold text-white">
+                    Next-Gen Ad Tech Stack
+                </h3>
+                <p class="mt-6 max-w-2xl text-lg text-slate-400 mx-auto">
+                    Built for speed, scale, and maximum revenue. Our infrastructure handles billions of requests with millisecond latency.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="tech-card bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
+                    <div class="text-blue-400 text-3xl mb-6"><i class="fas fa-bolt"></i></div>
+                    <h4 class="text-xl font-bold text-white mb-3">Low Latency Loading</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Asynchronous tags and lazy loading ensure your Contentful Paint (LCP) scores remain high while ads load instantly.
+                    </p>
+                </div>
+
+                <div class="tech-card bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
+                    <div class="text-blue-400 text-3xl mb-6"><i class="fas fa-server"></i></div>
+                    <h4 class="text-xl font-bold text-white mb-3">Server-to-Server (S2S)</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Offload bid requests to our servers. Reduce browser connections and improve page speed with OpenRTB 2.5 integrations.
+                    </p>
+                </div>
+
+                <div class="tech-card bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
+                    <div class="text-blue-400 text-3xl mb-6"><i class="fas fa-fingerprint"></i></div>
+                    <h4 class="text-xl font-bold text-white mb-3">Identity Solutions</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Future-proof your revenue. Built-in support for ID5, UID2.0, and first-party data to target users in a cookieless world.
+                    </p>
+                </div>
+
+                <div class="tech-card bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
+                    <div class="text-blue-400 text-3xl mb-6"><i class="fas fa-chart-bar"></i></div>
+                    <h4 class="text-xl font-bold text-white mb-3">Real-Time Analytics</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Granular reporting dashboard. Track RPM, Fill Rate, and Bid Win Rate across all partners in real-time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="player" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold mb-6 border border-blue-100">
+                VIDEO MONETIZATION
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                Increase Revenue by up to <span class="text-blue-700">150%</span>
+            </h2>
+            
+            <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                Don't have video content? No problem. The <strong>mxads.io Player</strong> turns any article into a premium video ad placement.
+                Our lightweight, VAST/VPAID compliant player supports Sticky & Floating modes to maximize viewability.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
+                <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-900 mb-2 flex items-center"><i class="fas fa-rocket text-blue-600 mr-2"></i> High CPMs</h4>
+                    <p class="text-sm text-slate-500">Video ads command the highest rates in the industry.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-900 mb-2 flex items-center"><i class="fas fa-layer-group text-blue-600 mr-2"></i> Outstream</h4>
+                    <p class="text-sm text-slate-500">Monetize editorial content without existing video files.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-900 mb-2 flex items-center"><i class="fas fa-mobile-alt text-blue-600 mr-2"></i> Mobile First</h4>
+                    <p class="text-sm text-slate-500">Optimized specifically for mobile web user experience.</p>
+                </div>
+            </div>
+
+            <a href="signup.html" class="inline-flex items-center justify-center bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-full font-bold text-lg transition shadow-xl shadow-blue-700/20">
+                Get the Player
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-white">mxads.io</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm leading-relaxed mb-6">
+                        Empowering 10,000+ websites and 20,000+ apps with next-gen monetization technology. We connect you to the global ad ecosystem.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Success Stories</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6">Resources</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition">Publishers</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Ads.txt Guide</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 text-sm">&copy; 2024 mxads.io. All rights reserved.</p>
+                <p class="text-slate-600 text-xs mt-2 md:mt-0">Designed for Premium Publishers</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
