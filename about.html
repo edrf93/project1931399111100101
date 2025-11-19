@@ -10,11 +10,19 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .page-bg { background-color: #f8fafc; min-height: 100vh; }
-        .dark-card-bg { background-color: white; border: 1px solid #e2e8f0; }
+        
+        /* KOYU TEMA */
+        .page-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
+            min-height: 100vh;
+        }
+        .dark-card-bg {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+        }
     </style>
 </head>
-<body class="page-bg flex flex-col pt-20">
+<body class="page-bg flex flex-col text-slate-300">
 
     <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-100 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,21 +51,131 @@
         </div>
     </nav>
     
-    <main class="flex-grow">
-        <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
-            <h1 class="text-5xl font-extrabold text-slate-900 text-center mb-6">Our Mission & Values</h1>
-            <p class="text-xl text-slate-600 max-w-4xl mx-auto text-center mb-16">
-                To bridge the gap between cutting-edge ad technology and genuine human experience, creating a sustainable and profitable ecosystem for premium content creators worldwide.
-            </p>
+    <main class="flex-grow pt-32 pb-20">
+        <section class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Our Mission & Values</h1>
+                <p class="text-xl text-blue-200 max-w-4xl mx-auto leading-relaxed">
+                    To bridge the gap between cutting-edge ad technology and genuine human experience, creating a sustainable and profitable ecosystem for premium content creators worldwide.
+                </p>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="dark-card-bg p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                    <i class="fas fa-lightbulb text-blue-700 text-3xl mb-3"></i>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Innovation</h3>
-                    <p class="text-slate-600">
-                        We constantly evolve our platform, utilizing AI and machine learning to stay ahead of market trends.
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+                <div class="dark-card-bg p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300">
+                    <i class="fas fa-lightbulb text-blue-500 text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4">Innovation</h3>
+                    <p class="text-slate-400">
+                        We constantly evolve our platform, utilizing AI and machine learning to stay ahead of market trends and maximize yield for every impression.
                     </p>
                 </div>
-                <div class="dark-card-bg p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                    <i class="fas fa-users text-blue-700 text-3xl mb-3"></i>
-                    <h3 class="text
+                <div class="dark-card-bg p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300">
+                    <i class="fas fa-users text-blue-500 text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4">Partnership</h3>
+                    <p class="text-slate-400">
+                        We treat our publishers as true partners, offering transparent data, net-30 payouts, and dedicated human support.
+                    </p>
+                </div>
+                <div class="dark-card-bg p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300">
+                    <i class="fas fa-handshake text-blue-500 text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4">Integrity</h3>
+                    <p class="text-slate-400">
+                        Ethical advertising practices and fraud prevention are at the core of our operations. We ensure brand safety for both publishers and advertisers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-700/50 my-16"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">The AdRyx Difference</h2>
+                    <p class="text-lg text-slate-300 leading-relaxed mb-6">
+                        AdRyx.io was founded by a team of industry veterans who were frustrated by the lack of transparency and efficiency in the existing programmatic landscape.
+                    </p>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        We built a platform from the ground up that prioritizes publisher revenue and user experience above all else. Our technology is constantly learning to maximize your yield every single day, connecting you to premium global demand sources without the complexity.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-600 blur-3xl opacity-20 rounded-full"></div>
+                    <div class="dark-card-bg p-8 rounded-xl shadow-2xl relative z-10 border border-slate-700">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-blue-400">
+                                <i class="fas fa-globe text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Global Reach</h4>
+                                <p class="text-sm text-slate-500">Monetizing traffic from 190+ countries</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-blue-400">
+                                <i class="fas fa-server text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Advanced Infrastructure</h4>
+                                <p class="text-sm text-slate-500">Processing billions of requests daily</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-blue-400">
+                                <i class="fas fa-shield-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Ad Quality Protection</h4>
+                                <p class="text-sm text-slate-500">Proprietary anti-malware technology</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-white">AdRyx.io</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm leading-relaxed mb-6">
+                        Empowering 10,000+ websites and 20,000+ apps with next-gen monetization technology. We connect you to the global ad ecosystem.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="hover:text-blue-400 transition">About Us</a></li>
+                        <li><a href="success.html" class="hover:text-blue-400 transition">Success Stories</a></li>
+                        <li><a href="careers.html" class="hover:text-blue-400 transition">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6">Resources</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="publishers.html" class="hover:text-blue-400 transition">Publishers</a></li>
+                        <li><a href="adstxt.html" class="hover:text-blue-400 transition">Ads.txt Guide</a></li>
+                        <li><a href="policy.html" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400 transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 text-sm">&copy; 2025 AdRyx.io. All rights reserved.</p>
+                <p class="text-slate-600 text-xs mt-2 md:mt-0">Designed for Premium Publishers</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -10,15 +10,44 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .page-bg { background-color: #f8fafc; min-height: 100vh; }
-        .custom-input-contact {
-            background-color: white; border: 1px solid #e2e8f0; padding: 12px;
-            width: 100%; color: #1e293b; border-radius: 8px; transition: border-color 0.3s ease; outline: none;
+        
+        /* KOYU TEMA */
+        .page-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
+            min-height: 100vh;
         }
-        .custom-input-contact:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+        .dark-card-bg {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+        }
+        
+        /* INPUT STİLİ */
+        .custom-input-contact {
+            background-color: transparent;
+            border: 1px solid #555;
+            padding: 12px;
+            width: 100%;
+            color: white;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        .custom-input-contact:focus {
+            border-color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        .custom-label { color: #e2e8f0; margin-bottom: 4px; display: block; font-size: 0.9rem; }
+        
+        /* Loader */
+        .loader {
+            border: 3px solid #f3f3f3; border-radius: 50%; border-top: 3px solid #3b82f6;
+            width: 20px; height: 20px; -webkit-animation: spin 1s linear infinite; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="page-bg flex flex-col pt-20">
+<body class="page-bg flex flex-col text-slate-300">
+
     <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-100 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
@@ -31,9 +60,9 @@
                     </div>
                     <div class="hidden md:ml-12 md:flex md:space-x-8">
                         <a href="index.html#why-us" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Why Us</a>
-                        <a href="about.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm">About Us</a>
-                        <a href="careers.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Careers</a>
-                        <a href="contact.html" class="text-blue-700 font-medium text-sm">Contact</a>
+                        <a href="index.html#solutions" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Solutions</a>
+                        <a href="index.html#technology" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Technology</a>
+                        <a href="index.html#player" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Video Player</a>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -45,48 +74,84 @@
             </div>
         </div>
     </nav>
-
-    <main class="flex-grow">
-        <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
-            <h1 class="text-5xl font-extrabold text-slate-900 text-center mb-6">Contact Our Team</h1>
-            <p class="text-xl text-slate-600 max-w-3xl mx-auto text-center mb-12">
+    
+    <main class="flex-grow pt-32 pb-20">
+        <section class="max-w-7xl mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white text-center mb-6">Contact Our Team</h1>
+            <p class="text-xl text-blue-200 max-w-3xl mx-auto text-center mb-16">
                 We're here to help you maximize your ad revenue. Reach out to our dedicated support and sales team.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 
-                <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Send a Message</h2>
-                    <form action="mailto:team@adryx.io" method="POST" enctype="text/plain" class="space-y-6">
+                <div class="md:col-span-2 dark-card-bg p-8 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-white mb-6">Send a Message</h2>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <input type="hidden" name="website" value="Contact Form Inquiry">
+                        <input type="hidden" name="pageviews" value="N/A">
+
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <input type="text" placeholder="Full Name *" required class="custom-input-contact">
-                            <input type="email" placeholder="Email Address *" required class="custom-input-contact">
+                            <div>
+                                <label class="custom-label">First Name *</label>
+                                <input type="text" name="first-name" required class="custom-input-contact">
+                            </div>
+                            <div>
+                                <label class="custom-label">Last Name *</label>
+                                <input type="text" name="last-name" required class="custom-input-contact">
+                            </div>
                         </div>
-                        <input type="text" placeholder="Subject" class="custom-input-contact">
-                        <textarea rows="5" placeholder="Your Message *" required class="custom-input-contact resize-none"></textarea>
+
+                        <div>
+                            <label class="custom-label">Email Address *</label>
+                            <input type="email" name="email" required class="custom-input-contact">
+                        </div>
                         
-                        <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-lg transition duration-300 shadow-lg shadow-blue-700/30">
-                            Send Inquiry <i class="fas fa-paper-plane ml-2"></i>
+                        <div>
+                            <label class="custom-label">Phone (Optional)</label>
+                            <input type="tel" name="phone" class="custom-input-contact">
+                        </div>
+
+                        <div>
+                            <label class="custom-label">Message *</label>
+                            <textarea name="message" rows="5" required class="custom-input-contact resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submit-btn" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-lg transition duration-300 shadow-lg shadow-blue-700/30 flex items-center justify-center gap-3">
+                            <span>Send Inquiry</span>
+                            <div id="btn-loader" class="loader hidden"></div>
                         </button>
                     </form>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 space-y-6">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Direct Contact</h2>
+                <div class="dark-card-bg p-8 rounded-xl shadow-lg space-y-8 h-fit">
+                    <h2 class="text-2xl font-bold text-white mb-6">Direct Contact</h2>
                     
-                    <div>
-                        <h4 class="font-semibold text-blue-700">General Inquiry & Sales</h4>
-                        <p class="text-slate-700"><i class="fas fa-envelope mr-2"></i> team@adryx.io</p>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-blue-400 flex-shrink-0">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-lg">General Inquiry</h4>
+                            <p class="text-slate-400">team@adryx.io</p>
+                        </div>
                     </div>
                     
-                    <div>
-                        <h4 class="font-semibold text-blue-700">Publisher Support</h4>
-                        <p class="text-slate-700"><i class="fas fa-headset mr-2"></i> team@adryx.io</p>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-blue-400 flex-shrink-0">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-lg">Publisher Support</h4>
+                            <p class="text-slate-400">team@adryx.io</p>
+                        </div>
                     </div>
 
-                    <p class="text-slate-500 pt-4 border-t border-slate-200">
-                        We aim to respond to all business inquiries within 12 hours.
-                    </p>
+                    <div class="pt-6 border-t border-slate-700">
+                        <p class="text-slate-500 text-sm">
+                            We aim to respond to all business inquiries within 12-24 hours.
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -137,5 +202,52 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnLoader = document.getElementById('btn-loader');
+        const btnText = submitBtn.querySelector('span');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Loading State
+            btnText.textContent = 'Sending...';
+            btnLoader.classList.remove('hidden');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // Backend API Çağrısı
+                const response = await fetch('/api/submit-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    alert("Message sent successfully! We will contact you shortly.");
+                    form.reset();
+                } else {
+                    alert(`Error: ${result.message || 'Failed to send message.'}`);
+                }
+            } catch (error) {
+                alert("Network error: Unable to reach the server.");
+            } finally {
+                // Reset Button
+                btnText.textContent = 'Send Inquiry';
+                btnLoader.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }
+        });
+    </script>
+
 </body>
 </html>

@@ -8,74 +8,94 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .page-bg { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); min-height: 100vh; }
+        .page-bg { background: linear-gradient(135deg, #0f172a 0%, #172554 100%); min-height: 100vh; }
         .dark-card-bg { background-color: #1e1e1e; border: 1px solid #333; }
-        .feature-icon { color: #34d399; } /* Yeşil tonu */
     </style>
 </head>
-<body class="page-bg flex flex-col">
-    <header class="w-full p-6 md:p-8 border-b border-slate-700/50">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white tracking-tighter">AdRyx.<span class="text-indigo-400">io</span></a>
-            <div class="hidden md:flex space-x-8 text-lg font-medium">
-                <a href="index.html" class="text-slate-300 hover:text-indigo-400 transition">Home</a>
-                <a href="about.html" class="text-slate-300 hover:text-indigo-400 transition">About Us</a>
-                <a href="contact.html" class="text-slate-300 hover:text-indigo-400 transition">Contact</a>
-                <a href="signup.html" class="text-white hover:text-indigo-400 transition">Publishers</a>
+<body class="page-bg flex flex-col text-slate-300">
+
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-100 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-9 h-9 bg-blue-700 rounded-lg flex items-center justify-center text-white font-bold shadow-blue-500/30 shadow-lg">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-slate-900 tracking-tight">AdRyx.io</span>
+                    </div>
+                    <div class="hidden md:ml-12 md:flex md:space-x-8">
+                        <a href="index.html#why-us" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Why Us</a>
+                        <a href="index.html#solutions" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Solutions</a>
+                        <a href="index.html#technology" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Technology</a>
+                        <a href="index.html#player" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Video Player</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-slate-600 hover:text-blue-700 font-medium text-sm hidden sm:block">Login</a>
+                    <a href="signup.html" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg shadow-blue-700/30 text-sm">
+                        Start Monetizing
+                    </a>
+                </div>
             </div>
-            <a href="signup.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg shadow-indigo-500/50 transition duration-300">
-                Start Monetizing
-            </a>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main class="flex-grow">
-        <section class="max-w-6xl mx-auto px-6 py-16 md:py-24">
-            <h1 class="text-5xl font-extrabold text-white text-center mb-6">Partner with AdRyx.io</h1>
-            <p class="text-xl text-blue-200 max-w-3xl mx-auto text-center mb-16">
-                Monetize your premium traffic with superior technology, dedicated support, and higher fill rates than industry standards.
-            </p>
+    <main class="flex-grow pt-32 pb-20">
+        <section class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Partner with AdRyx.io</h1>
+                <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+                    Monetize your premium traffic with superior technology, dedicated support, and higher fill rates than industry standards.
+                </p>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 
                 <div>
-                    <h2 class="text-3xl font-bold text-white mb-6">Our Value Proposition</h2>
-                    <ul class="space-y-6">
+                    <h2 class="text-3xl font-bold text-white mb-8">Our Value Proposition</h2>
+                    <ul class="space-y-8">
                         <li class="flex items-start gap-4">
-                            <i class="fas fa-money-bill-wave feature-icon text-2xl mt-1"></i>
+                            <div class="bg-blue-900/50 p-3 rounded-lg text-blue-400">
+                                <i class="fas fa-money-bill-wave text-2xl"></i>
+                            </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-white">Higher CPMs</h3>
-                                <p class="text-slate-400">Access to exclusive demand partners and header bidding technology for maximum yield.</p>
+                                <p class="text-slate-400 mt-2">Access to exclusive demand partners and header bidding technology for maximum yield.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <i class="fas fa-tachometer-alt feature-icon text-2xl mt-1"></i>
+                            <div class="bg-blue-900/50 p-3 rounded-lg text-blue-400">
+                                <i class="fas fa-tachometer-alt text-2xl"></i>
+                            </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-white">Advanced Technology</h3>
-                                <p class="text-slate-400">AI-driven ad layouts, anti-fraud measures, and optimal latency control.</p>
+                                <p class="text-slate-400 mt-2">AI-driven ad layouts, anti-fraud measures, and optimal latency control for high Core Web Vitals scores.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <i class="fas fa-headset feature-icon text-2xl mt-1"></i>
+                            <div class="bg-blue-900/50 p-3 rounded-lg text-blue-400">
+                                <i class="fas fa-headset text-2xl"></i>
+                            </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-white">Dedicated Support</h3>
-                                <p class="text-slate-400">Receive personalized support from a dedicated Yield Manager, not a ticketing system.</p>
+                                <p class="text-slate-400 mt-2">Receive personalized support from a dedicated Yield Manager, not a generic ticketing system.</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="dark-card-bg p-8 rounded-xl shadow-xl space-y-6 flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold text-white text-center">Ready to Apply?</h2>
-                    <p class="text-slate-300 text-center">
+                <div class="dark-card-bg p-8 rounded-xl shadow-2xl border border-slate-700 flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-white text-center mb-4">Ready to Apply?</h2>
+                    <p class="text-slate-400 text-center mb-8">
                         Our application process is quick and confidential. We review all submissions and reach out to approved publishers within 24 hours.
                     </p>
-                    <a href="signup.html" class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg shadow-indigo-500/50">
+                    <a href="signup.html" class="w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg shadow-blue-700/50">
                         Start Your Application Now <i class="fas fa-arrow-right ml-2"></i>
                     </a>
-                    <p class="text-center text-sm text-slate-500">Minimum requirement: 100,000 monthly pageviews.</p>
+                    <p class="text-center text-sm text-slate-600 mt-6">Minimum requirement: 100,000 monthly pageviews.</p>
                 </div>
             </div>
         </section>

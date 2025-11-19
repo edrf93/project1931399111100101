@@ -8,60 +8,72 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .page-bg { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); min-height: 100vh; }
+        .page-bg { background: linear-gradient(135deg, #0f172a 0%, #172554 100%); min-height: 100vh; }
         .dark-card-bg { background-color: #1e1e1e; border: 1px solid #333; }
-        .policy-h2 { color: #818cf8; font-weight: 700; margin-top: 32px; margin-bottom: 8px; font-size: 1.5rem; }
-        .policy-p { color: #e2e8f0; margin-bottom: 16px; }
+        .policy-h2 { color: #3b82f6; font-weight: 700; margin-top: 32px; margin-bottom: 12px; font-size: 1.5rem; }
+        .policy-p { color: #cbd5e1; margin-bottom: 16px; line-height: 1.7; }
+        .policy-list { color: #94a3b8; list-style-type: disc; list-style-position: inside; margin-left: 16px; margin-bottom: 16px; }
     </style>
 </head>
-<body class="page-bg flex flex-col">
-    <header class="w-full p-6 md:p-8 border-b border-slate-700/50">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white tracking-tighter">AdRyx.<span class="text-indigo-400">io</span></a>
-            <div class="hidden md:flex space-x-8 text-lg font-medium">
-                <a href="index.html" class="text-slate-300 hover:text-indigo-400 transition">Home</a>
-                <a href="about.html" class="text-slate-300 hover:text-indigo-400 transition">About Us</a>
-                <a href="contact.html" class="text-slate-300 hover:text-indigo-400 transition">Contact</a>
-                <a href="signup.html" class="text-slate-300 hover:text-indigo-400 transition">Publishers</a>
-            </div>
-            <a href="signup.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg shadow-indigo-500/50 transition duration-300">
-                Start Monetizing
-            </a>
-        </nav>
-    </header>
+<body class="page-bg flex flex-col text-slate-300">
 
-    <main class="flex-grow">
-        <section class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-            <h1 class="text-5xl font-extrabold text-white text-center mb-6">Privacy Policy</h1>
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-100 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-9 h-9 bg-blue-700 rounded-lg flex items-center justify-center text-white font-bold shadow-blue-500/30 shadow-lg">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-slate-900 tracking-tight">AdRyx.io</span>
+                    </div>
+                    <div class="hidden md:ml-12 md:flex md:space-x-8">
+                        <a href="index.html#why-us" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Why Us</a>
+                        <a href="index.html#solutions" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Solutions</a>
+                        <a href="index.html#technology" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Technology</a>
+                        <a href="index.html#player" class="text-slate-600 hover:text-blue-700 font-medium text-sm">Video Player</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-slate-600 hover:text-blue-700 font-medium text-sm hidden sm:block">Login</a>
+                    <a href="signup.html" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg shadow-blue-700/30 text-sm">
+                        Start Monetizing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20">
+        <section class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white text-center mb-6">Privacy Policy</h1>
             <p class="text-lg text-blue-200 text-center mb-12">
                 Last updated: November 19, 2025
             </p>
 
-            <div class="text-slate-300">
-                <p>
+            <div class="dark-card-bg p-8 md:p-12 rounded-xl shadow-xl border border-slate-700">
+                <p class="policy-p">
                     This Privacy Policy describes AdRyx.io's policies and procedures on the collection, use, and disclosure of your information when you use the Service and tells you about your privacy rights.
                 </p>
 
                 <h2 class="policy-h2">1. Definitions</h2>
                 <p class="policy-p">
-                    For the purposes of this Policy, "Service" refers to the AdRyx.io website and the ad monetization platform.
+                    For the purposes of this Policy, "Service" refers to the AdRyx.io website and the ad monetization platform provided by us.
                 </p>
 
                 <h2 class="policy-h2">2. Information We Collect</h2>
-                <p class="policy-p">
-                    We collect several types of information:
-                    <ul class="list-disc list-inside ml-4 space-y-2 text-slate-400">
-                        <li>**Personal Data:** Includes name, email address, phone number, and website URL provided through the sign-up form.</li>
-                        <li>**Usage Data:** Information collected automatically, such as IP address, browser type, and pages visited on our site.</li>
-                        <li>**Ad Data:** Non-personal data related to ad impressions, clicks, and revenue metrics.</li>
-                    </ul>
-                </p>
+                <p class="policy-p">We collect several types of information for various purposes:</p>
+                <ul class="policy-list">
+                    <li><strong>Personal Data:</strong> Includes name, email address, phone number, and website URL provided through the sign-up form.</li>
+                    <li><strong>Usage Data:</strong> Information collected automatically, such as IP address, browser type, and pages visited on our site.</li>
+                    <li><strong>Ad Data:</strong> Non-personal data related to ad impressions, clicks, and revenue metrics.</li>
+                </ul>
 
                 <h2 class="policy-h2">3. Use of Your Personal Data</h2>
                 <p class="policy-p">
-                    We may use Personal Data for the following purposes: to provide and maintain our Service, to manage your publisher application, to contact you regarding your account, and for business analytics.
+                    We may use Personal Data for the following purposes: to provide and maintain our Service, to manage your publisher application, to contact you regarding your account, and for business analytics to improve our technology.
                 </p>
                 
                 <h2 class="policy-h2">4. Disclosure of Your Personal Data</h2>
@@ -76,7 +88,7 @@
                 
                 <h2 class="policy-h2">Contact Us</h2>
                 <p class="policy-p">
-                    If you have any questions about this Privacy Policy, you can contact us: <a href="mailto:info@adryx.io" class="text-indigo-400 hover:underline">info@adryx.io</a>
+                    If you have any questions about this Privacy Policy, you can contact us: <a href="mailto:team@adryx.io" class="text-blue-400 hover:underline">team@adryx.io</a>
                 </p>
             </div>
         </section>
