@@ -6,16 +6,17 @@
     <title>Join AdRyx.io | Start Monetizing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
 
-        /* Custom Dark Theme Background similar to the screenshot */
+        /* Custom Dark Theme Background */
         .dark-form-bg {
-            background-color: #1e1e1e; /* Koyu gri zemin */
+            background-color: #1e1e1e;
         }
         
-        /* Input Styling: Underline only, transition effects */
+        /* Input Styling */
         .custom-input {
             background-color: transparent;
             border-bottom: 1px solid #555;
@@ -27,7 +28,7 @@
         }
         
         .custom-input:focus {
-            border-bottom: 2px solid #818cf8; /* Indigo focus color */
+            border-bottom: 2px solid #818cf8;
         }
 
         .custom-label {
@@ -49,13 +50,37 @@
             border-top: 3px solid #6366f1;
             width: 24px;
             height: 24px;
-            -webkit-animation: spin 1s linear infinite; /* Safari */
+            -webkit-animation: spin 1s linear infinite;
             animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* YENİ GEÇİŞ CSS'İ (Kutunun patlamasını engeller) */
+        .form-content-wrapper {
+            transition: opacity 0.5s ease-out, max-height 0.5s ease-out;
+            max-height: 2000px; /* Başlangıçta yüksekliği koru */
+            opacity: 1;
+        }
+
+        .form-content-wrapper.fade-out {
+            opacity: 0;
+            max-height: 0;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        #success-message {
+            opacity: 0; /* Başlangıçta görünmez */
+            transition: opacity 0.5s ease-in;
+        }
+        #success-message.visible {
+            opacity: 1; /* Görünür olduğunda */
         }
     </style>
 </head>
@@ -99,67 +124,68 @@
                     </a>
                 </div>
 
-                <form id="monetization-form" class="space-y-8">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div>
-                            <label for="first-name" class="custom-label">First name *</label>
-                            <input type="text" id="first-name" name="first-name" required class="custom-input">
-                        </div>
-                        <div>
-                            <label for="last-name" class="custom-label">Last name *</label>
-                            <input type="text" id="last-name" name="last-name" required class="custom-input">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div>
-                            <label for="phone" class="custom-label">Phone</label>
-                            <div class="relative">
-                                <div class="absolute bottom-3 left-0 text-slate-400 flex items-center gap-1">
-                                    <i class="fas fa-globe"></i>
-                                    <i class="fas fa-chevron-down text-xs"></i>
-                                </div>
-                                <input type="tel" id="phone" name="phone" class="custom-input pl-12" placeholder="+1 (555) 000-0000">
+                <div id="form-wrapper" class="form-content-wrapper">
+                    <form id="monetization-form" class="space-y-8">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div>
+                                <label for="first-name" class="custom-label">First name *</label>
+                                <input type="text" id="first-name" name="first-name" required class="custom-input">
+                            </div>
+                            <div>
+                                <label for="last-name" class="custom-label">Last name *</label>
+                                <input type="text" id="last-name" name="last-name" required class="custom-input">
                             </div>
                         </div>
-                        <div>
-                            <label for="email" class="custom-label">Email *</label>
-                            <input type="email" id="email" name="email" required class="custom-input">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div>
+                                <label for="phone" class="custom-label">Phone</label>
+                                <div class="relative">
+                                    <div class="absolute bottom-3 left-0 text-slate-400 flex items-center gap-1">
+                                        <i class="fas fa-globe"></i>
+                                        <i class="fas fa-chevron-down text-xs"></i>
+                                    </div>
+                                    <input type="tel" id="phone" name="phone" class="custom-input pl-12" placeholder="+1 (555) 000-0000">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="custom-label">Email *</label>
+                                <input type="email" id="email" name="email" required class="custom-input">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div>
-                            <label for="website" class="custom-label">Website *</label>
-                            <input type="url" id="website" name="website" placeholder="https://" required class="custom-input">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div>
+                                <label for="website" class="custom-label">Website *</label>
+                                <input type="url" id="website" name="website" placeholder="https://" required class="custom-input">
+                            </div>
+                            <div>
+                                <label for="pageviews" class="custom-label">Monthly Pageviews *</label>
+                                <select id="pageviews" name="pageviews" required class="custom-input bg-transparent">
+                                    <option value="" class="bg-slate-800 text-slate-400">Select Range</option>
+                                    <option value="<100k" class="bg-slate-800 text-white">Less than 100k</option>
+                                    <option value="100k-1M" class="bg-slate-800 text-white">100k - 1M</option>
+                                    <option value="1M-10M" class="bg-slate-800 text-white">1M - 10M</option>
+                                    <option value="10M+" class="bg-slate-800 text-white">10M+</option>
+                                </select>
+                            </div>
                         </div>
+
                         <div>
-                            <label for="pageviews" class="custom-label">Monthly Pageviews *</label>
-                            <select id="pageviews" name="pageviews" required class="custom-input bg-transparent">
-                                <option value="" class="bg-slate-800 text-slate-400">Select Range</option>
-                                <option value="<100k" class="bg-slate-800 text-white">Less than 100k</option>
-                                <option value="100k-1M" class="bg-slate-800 text-white">100k - 1M</option>
-                                <option value="1M-10M" class="bg-slate-800 text-white">1M - 10M</option>
-                                <option value="10M+" class="bg-slate-800 text-white">10M+</option>
-                            </select>
+                            <label for="message" class="custom-label">Message *</label>
+                            <textarea id="message" name="message" rows="2" required class="custom-input resize-none"></textarea>
                         </div>
-                    </div>
 
-                    <div>
-                        <label for="message" class="custom-label">Message *</label>
-                        <textarea id="message" name="message" rows="2" required class="custom-input resize-none"></textarea>
-                    </div>
+                        <div class="pt-4">
+                            <button type="submit" id="submit-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-3">
+                                <span>Submit</span>
+                                <div id="btn-loader" class="loader hidden"></div>
+                            </button>
+                        </div>
 
-                    <div class="pt-4">
-                        <button type="submit" id="submit-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-3">
-                            <span>Submit</span>
-                            <div id="btn-loader" class="loader hidden"></div>
-                        </button>
-                    </div>
-
-                </form>
-            </div>
+                    </form>
+                </div> </div>
             
             <p class="text-center text-slate-500 text-sm">
                 By submitting this form, you agree to our Privacy Policy and Terms of Service.
@@ -169,13 +195,15 @@
 
     <script>
         const form = document.getElementById('monetization-form');
+        const formWrapper = document.getElementById('form-wrapper'); // Yeni sarıcı element
         const successMessage = document.getElementById('success-message');
         const submitBtn = document.getElementById('submit-btn');
         const btnLoader = document.getElementById('btn-loader');
         const btnText = submitBtn.querySelector('span');
+        const formActionUrl = '/api/submit-form'; // API URL'si
 
         form.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Sayfanın varsayılan yenilenmesini engeller
+            e.preventDefault();
 
             // 1. Loading Durumuna Geçiş
             btnText.textContent = 'Sending...';
@@ -183,13 +211,12 @@
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            // Form verilerini JSON objesine dönüştür
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
             try {
                 // Vercel Serverless Fonksiyonuna POST isteği gönderir
-                const response = await fetch('/api/submit-form', {
+                const response = await fetch(formActionUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -197,18 +224,19 @@
                     body: JSON.stringify(data),
                 });
 
-                // Yanıtı JSON olarak al
                 const result = await response.json();
 
                 if (response.ok && result.success) {
-                    // BAŞARILI DURUM: Başarı mesajını göster
-                    form.classList.add('opacity-0');
+                    // BAŞARILI DURUM: Formu yumuşakça gizle ve başarı mesajını göster
+
+                    // Form içeriğini gizle (CSS geçişi başlar)
+                    formWrapper.classList.add('fade-out');
                     
-                    // Başarı mesajını görünür yap
+                    // Geçiş (0.5s) bittikten sonra başarı mesajını göster
                     setTimeout(() => {
-                        form.style.display = 'none'; // Formu gizle
                         successMessage.classList.remove('hidden');
-                    }, 300);
+                        successMessage.classList.add('visible'); // Yumuşak belirmesi için
+                    }, 500);
 
                 } else {
                     // HATA DURUMU (API'den Hata Geldi)
@@ -227,7 +255,7 @@
 
             } catch (error) {
                 // Ağ bağlantısı veya fetch hatası
-                alert("Ağ hatası: Sunucuya ulaşılamadı. İnternet bağlantınızı veya Vercel'deki deploy durumunuzu kontrol edin.");
+                alert("Ağ hatası: Sunucuya ulaşılamadı.");
                 console.error("Fetch Hatası:", error);
                 
                 // Butonu eski haline getir
