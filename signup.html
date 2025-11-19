@@ -59,16 +59,17 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* YENİ GEÇİŞ CSS'İ (Kutunun patlamasını engeller) */
+        /* GEÇİŞ CSS'İ */
         .form-content-wrapper {
             transition: opacity 0.5s ease-out, max-height 0.5s ease-out;
-            max-height: 2000px; /* Başlangıçta yüksekliği koru */
+            max-height: 2000px; /* Başlangıçta yeterince yüksek */
             opacity: 1;
         }
 
         .form-content-wrapper.fade-out {
             opacity: 0;
             max-height: 0;
+            /* Yatay ve dikey boşlukları sıfırlayarak kutu küçülürken alan kaybını sağlar */
             padding-top: 0 !important;
             padding-bottom: 0 !important;
             margin-top: 0 !important;
@@ -195,12 +196,12 @@
 
     <script>
         const form = document.getElementById('monetization-form');
-        const formWrapper = document.getElementById('form-wrapper'); // Yeni sarıcı element
+        const formWrapper = document.getElementById('form-wrapper');
         const successMessage = document.getElementById('success-message');
         const submitBtn = document.getElementById('submit-btn');
         const btnLoader = document.getElementById('btn-loader');
         const btnText = submitBtn.querySelector('span');
-        const formActionUrl = '/api/submit-form'; // API URL'si
+        const formActionUrl = '/api/submit-form'; // Vercel API URL
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -234,9 +235,12 @@
                     
                     // Geçiş (0.5s) bittikten sonra başarı mesajını göster
                     setTimeout(() => {
+                        // Formun kapladığı alanı kesin olarak sıfırla
+                        formWrapper.style.display = 'none';
+                        
                         successMessage.classList.remove('hidden');
                         successMessage.classList.add('visible'); // Yumuşak belirmesi için
-                    }, 500);
+                    }, 500); // CSS geçiş süresi kadar bekler
 
                 } else {
                     // HATA DURUMU (API'den Hata Geldi)
@@ -255,7 +259,7 @@
 
             } catch (error) {
                 // Ağ bağlantısı veya fetch hatası
-                alert("Ağ hatası: Sunucuya ulaşılamadı.");
+                alert("Ağ hatası: Sunucuya ulaşılamadı. İnternet bağlantınızı veya Vercel'deki deploy durumunuzu kontrol edin.");
                 console.error("Fetch Hatası:", error);
                 
                 // Butonu eski haline getir
